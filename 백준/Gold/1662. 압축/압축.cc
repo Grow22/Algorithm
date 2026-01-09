@@ -23,7 +23,7 @@ int main(void) {
 		// (2) 정수인 경우
 		else if (isalnum(sr[i])) {
 			// (2)-1 뒤에 '(' 괄호가 등장할 경우 스택에 해당 정수를 그대로 push
-			if (i < sr.size() - 2 && sr[i + 1] == '(') {
+			if (i < sr.size() - 1 && sr[i + 1] == '(') {
 				s.push(sr[i] - '0');
 			}
 			else {
