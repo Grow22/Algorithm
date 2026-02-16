@@ -10,30 +10,32 @@ int total = 0;
 // 체스말을 두어도 되는 지를 확인하는 메서드
 int check(int level) {
 
-	// check the same line and diagonal
+	// 현재의 level 번째 위취에 퀸을 놓을 수 있는 지 모든 col 과 비교
 	for (int i = 0; i < level; i++) {
-
-		if (col[i] == col[level] || abs(col[level] - col[i]) == level - i) {
+		
+		// level col 이전에 위치한 퀸과 
+		// 같은 행에 위치했거나 대각선에 위치하였을 경우
+		if (col[i] == col[level] || abs(col[level] - col[i]) == level - i)
 			return false;
-		}
 	}
-
 	return true;
+	
 }
 // parameter x is index about column
 void queen(int x) {
 
-
+	// 모든 열에 퀸을 배치하였을 경우
 	if (x == N) {
 		total++;
 	}
-	else {
-		// iterate first row 
-		for (int i = 0; i < N; i++) {
 
+	else {
+
+		for (int i = 0; i < N; i++) {
 			col[x] = i;
-			// check the possibility to place the queen
-			// if is possible that upper condition then plus x
+
+			// 현재 x 번째 col 의 퀸이 놓여질 조건을 만족할 경우 
+			// 다음 열의 퀸의 위치에 대한 검사 진행
 			if (check(x)) {
 				queen(x + 1);
 			}
