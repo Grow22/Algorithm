@@ -37,7 +37,7 @@ void move(int box) {
 			// 시작 지점으로 돌아올 경우 탈출
 			if (i == X && i == Y) break;
 			// 범위 안에 있을 경우 원소를 이동
-			if (i <= X && X < n - i && i <= Y && Y < m - i) {
+			if (X < n - i && i <= Y && Y < m - i) {
 				arr[x][y] = arr[X][Y];
 				x = X;
 				y = Y;
