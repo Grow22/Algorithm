@@ -22,34 +22,39 @@ int main(int argc, char** argv)
 
         int res = 0;
 
-        // 가로 검사
-        for (int i = 0; i < n; i++) {
-            int cnt = 0;
-            for (int j = 0; j < n; j++) {
-                if (v[i][j] == 0) {      // 0이면 구간 끝
-                    if (cnt == k) res++;
-                    cnt = 0;
-                }
-                else {                   // 1이면 연속 개수 증가
-                    cnt++;
-                }
-            }
-            if (cnt == k) res++;         // 줄 끝 확인
-        }
-
-        // 세로 검사
-        for(int i=0;i<n;i++) {
-         	int cnt =0;
-            for(int j=0;j <n;j++) {
-             	if(v[j][i] ==0) {
-                 	if(cnt ==k) res++;
+       // 가로 검사
+        for(int i=0;i <n;i++) {
+         	int cnt = 0;
+            for(int j=0;j<n;j++) {
+             	if(v[i][j] ==0) {
+                 	if(cnt == k) res++;
                     cnt =0;
                 }
-                else cnt++;
+                //1 일경우
+                else {
+                 	cnt++;   
+                }
             }
-            if(cnt ==k) res++;
+            // 줄 끝 확인
+            if(cnt == k) res++;
         }
-
+		
+        // 세로 검사
+        for(int i=0;i <n;i++) {
+         	int cnt = 0;
+            for(int j=0;j<n;j++) {
+             	if(v[j][i] ==0) {
+                 	if(cnt == k) res++;
+                    cnt =0;
+                }
+                //1 일경우
+                else {
+                 	cnt++;   
+                }
+            }
+            // 줄 끝 확인
+            if(cnt == k) res++;
+        }
 
         cout << "#" << test_case << " " << res << "\n";
     }
